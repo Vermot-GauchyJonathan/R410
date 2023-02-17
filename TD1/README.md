@@ -60,6 +60,16 @@ balise <h2> ?
     J'ai utilisé setInterval() car cette fonction est appelé en bloucle contrairement a setTimeout()
 
 
+# 8 Exercice 3 : HTML, CSS et JavaScript (obligatoire)
+
+## 8.1 Champ Texte et Couleur d’arrière-plan
+
+### Quel évènement avez-vous utilisé ?
+    J ai utilise l evenement keyup
+
+###  Comment avez-vous fait changer la couleur du champ texte ?
+    J ai change la classe de l element input ce qui a pris les couleur assoiser a la classe dans le CSS
+
 
 
 
