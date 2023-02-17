@@ -125,6 +125,54 @@ function clock()
 }
 
 
+function GraphicClock()
+{
+	//recuperation de la div
+	let madiv = document.getElementById("graphic-clock");
+	madiv.innerHTML = '';
+
+	//creation d element html en js
+	let heure1 = document.createElement('img');
+	let heure2 = document.createElement('img');
+	let min1 = document.createElement('img');
+	let min2 = document.createElement('img');
+
+	
+
+
+	let madate = new Date(Date.now());
+	let heure = madate.getHours();
+	let min = madate.getMinutes();
+
+	//recuperation des heures
+	let a = Math.floor(heure/10);
+	let b = heure%10;
+	heure1.src = "assets/images/"+a+".gif";
+	heure2.src = "assets/images/"+b+".gif";
+
+	//recuperation des minutes
+	let c = Math.floor(min/10);
+	let d = min%10;
+	
+	min1.src = "assets/images/"+c+".gif";
+	min2.src = "assets/images/"+d+".gif";
+
+
+	//ajout des elements img dans la div
+	madiv.appendChild(heure1);
+	madiv.appendChild(heure2);
+	madiv.appendChild(min1);
+	madiv.appendChild(min2);
+	
+
+}
+
+function updateGraphicClock()
+{
+	window.setInterval(GraphicClock,1000);
+}
+
+
 defineHeading1();
 defineHeading2();
 defineHeading3();
@@ -132,3 +180,5 @@ defineHeading4();
 dateAlter();
 let tmp = document.getElementById("texteJMoinsX").addEventListener('click',getNbDays);
 updateClock1();
+GraphicClock();
+updateGraphicClock();
