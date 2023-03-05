@@ -171,6 +171,41 @@ function updateInputText()
 }
 
 
+//menu deroulant
+
+function menuImage() {
+	const menu = document.getElementById("aside");
+	let divs = menu.querySelectorAll("#aside > div");
+	console.log(divs);
+	for (let i = 0; i < divs.length; i++) {
+		let img = document.createElement("img");
+		img.src = "assets/images/plus.gif";
+		divs[i].querySelector("div").insertBefore(img, divs[i].querySelector("div > p"));
+	}
+}
+
+
+function menuSelect1(clic)
+{
+	const elementclic = clic.target;
+	let tmp = elementclic.parentElement.parentElement;
+	let l = tmp.querySelector("ul");
+	let classe = l.className;
+	console.log(classe);
+
+	if (classe === "ss_menu_cache")
+	{
+		l.classList.remove("ss_menu_cache");
+		l.classList.add("ss_menu_visible")
+	}
+	else
+	{
+		l.classList.remove("ss_menu_visible");
+		l.classList.add("ss_menu_cache")
+	}
+}
+
+
 defineHeading1();
 defineHeading2();
 defineHeading3();
@@ -181,3 +216,7 @@ updateClock1();
 GraphicClock();
 updateGraphicClock();
 document.getElementById("input").addEventListener('keyup', updateInputText);
+
+//menu deroulant
+menuImage();
+document.getElementById("aside").addEventListener('click',menuSelect1);

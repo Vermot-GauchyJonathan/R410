@@ -20,22 +20,39 @@
 
 aside {
     color: white;
-    background-color: black;
-    display: inline-block;
+    background-color: lightblue;
+    display: block;
+    padding: 5px;
 }
 
-aside div ul{
-    display: none;
+aside div {
+    border-radius: 5px;
+    background-color: black;
+    margin-top: 10px;
+
+
 }
+
+aside div div{
+    background-color: blue;
+    display: flex;
+
+
+}
+
+
 
 aside div ul{
     display: block;
 }
 
-aside div div p{
-    background-color: blue;
+
+.ss_menu_cache{
+    display: none;
 }
 
-aside div div p:hover{
-    background-color: blue;
+
+.ss_menu_visible{
+    display: block;
 }
+
