@@ -205,6 +205,26 @@ function menuSelect1(clic)
 	}
 }
 
+let savedoc = null;
+function search()
+{
+	if (savedoc == null)
+	{
+		savedoc = document.body.innerHTML;
+	}
+	else
+	{
+		document.body.innerHTML = savedoc;
+	}
+	let recherche = document.getElementById("Text").value;
+
+
+
+
+}
+
+
+
 
 defineHeading1();
 defineHeading2();
