@@ -17,11 +17,14 @@ console.log( message);
 
 function onLoad() {
 	console.log( 'Processus de chargement du document terminé…');
-	//
-	// All your JavaScript code goes here !
-	//
 
 }
-
 // Toute les ressources de la page sont complètement chargées.
 window.onload = onLoad;
+
+
+function initSelect()
+{
+	//change la classe de l element selectionne pour lui mettre un fond rouge
+}
+
