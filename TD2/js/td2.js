@@ -165,20 +165,20 @@ function search()
 	console.log("bon debut");
 	let recherche = document.getElementById("recherche-text").value;
 	console.log(recherche);
-	if (recherche != "")
-	{
-		var domaine = document.getElementsByTagName("*");
-		domaine = domaine[0];
+	if (recherche != "") {
+		let domaine = document.getElementsByTagName("body")[0];
 		console.log(domaine);
-		var tmp = document.createElement('span');
-		tmp.classList.add('jaune');
-		tmp.innerHTML = recherche;
-		var content = domaine.innerHTML;
+
+		let tmp = document.createElement("span");
+		tmp.classList.add("jaune");
+		tmp.textContent = recherche;
+
+		let content = domaine.innerHTML;
 		content = content.split(recherche).join(`<span class="jaune">${recherche}</span>`);
 		console.log(content);
-		domaine.innerHTML = content;
-		}
 
+		domaine.innerHTML = content;
+	}
 }
 
 insert();
