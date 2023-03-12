@@ -86,12 +86,31 @@ function insert()
 	madiv.appendChild(monselect);
 	madiv.appendChild(moninput);
 	document.body.insertBefore(madiv,document.body.firstChild);
+
+	//fonction search
+	var madivrecherche = document.createElement("div");
+	madivrecherche.id = "recherche";
+
+	var inputrecherche = document.createElement("input");
+	inputrecherche.id = "recherche-text";
+	inputrecherche.type = "text";
+
+	var boutonrecherche = document.createElement("button");
+	boutonrecherche.setAttribute("type", "button");
+	boutonrecherche.setAttribute("id","boutonrecherche");
+
+	var boutontext = document.createTextNode("rechercher");
+	boutonrecherche.appendChild(boutontext);
+
+	madivrecherche.appendChild(inputrecherche);
+	madivrecherche.appendChild(boutonrecherche);
+	document.body.insertBefore(madivrecherche,document.body.firstChild);
 }
 
 function select2(clic)
 {
 
-	if (clic.target.parentElement.id != "insert-div")
+	if (clic.target.parentElement.id != "insert-div" && clic.target.parentElement.id != "recherche")
 	{
 		var clicked = clic.target;
 		if (selected2 != null)
@@ -99,6 +118,7 @@ function select2(clic)
 			if (clicked.classList.contains("select2"))
 			{
 				clicked.classList.remove("select2");
+				selected2 = null;
 			}
 			else
 			{
@@ -112,6 +132,7 @@ function select2(clic)
 			clicked.classList.add("select2");
 			selected2 = clicked;
 		}
+
 	}
 }
 
@@ -129,6 +150,37 @@ function insertElement(target)
 	}
 }
 
+
+let savedoc = null;
+function search()
+{
+	if (savedoc == null)
+	{
+		savedoc = document.body.innerHTML;
+	}
+	else
+	{
+		document.body.innerHTML = savedoc;
+	}
+	console.log("bon debut");
+	let recherche = document.getElementById("recherche-text").value;
+	console.log(recherche);
+	if (recherche != "")
+	{
+		var domaine = document.getElementsByTagName("*");
+		domaine = domaine[0];
+		console.log(domaine);
+		var tmp = document.createElement('span');
+		tmp.classList.add('jaune');
+		tmp.innerHTML = recherche;
+		var content = domaine.innerHTML;
+		content = content.split(recherche).join(`<span class="jaune">${recherche}</span>`);
+		console.log(content);
+		domaine.innerHTML = content;
+		}
+
+}
+
 insert();
 //document.getElementsByTagName("body")[0].addEventListener('click',initSelect);
 //document.getElementsByTagName("body")[0].addEventListener('click',select);
@@ -139,3 +191,5 @@ document.getElementsByTagName("body")[0].addEventListener('click', function (e) 
 		insertElement(selected2);
 	}
 });
+
+document.getElementById("boutonrecherche").addEventListener('click',search);
