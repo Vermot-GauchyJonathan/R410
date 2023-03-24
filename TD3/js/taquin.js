@@ -55,18 +55,20 @@ function selection(event)
 	}
 	//console.log(cible);
 
-	//recherche de la place de la cellule clique
+	//recherche de la position de la cellule clique
 	for (var i =0;i<3; i++)
 	{
 		for (var j = 0;j<3;j++)
 		{
 			if (tabCases[i][j].id == cible.id)
 			{
-				console.log("identique ["+i+"]"+"["+j+"]");
+				var posI = i;
+				var posJ = j;
 			}
 		}
-
 	}
+
+	  
 
 }
 
